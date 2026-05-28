@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amber - Spiritual Gift Profile</title>
+<style>
+  :root {
+    --ink: #2C1A10; --cream: #FBF4EC; --panel: #FFF8F0; --gold:#C9963D; --muted:#7A5A3A; --line:#EDE0CE;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+  .page { max-width: 820px; margin: 0 auto; background: var(--cream); min-height: 100vh; box-shadow: 0 0 0 1px rgba(0,0,0,.03); }
+  header { background: linear-gradient(135deg, #2C1A10 0%, #5A2D1A 60%, #8B3A2A 100%); color: var(--cream); padding: 52px 40px 44px; text-align: center; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(201,150,61,.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(181,85,106,.12) 0%, transparent 40%); }
+  header > div { position: relative; z-index: 1; }
+  .label { font-weight: 700; font-size: 11px; letter-spacing: .25em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+  h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 68px; line-height: 1; margin: 0 0 8px; color: var(--cream); }
+  .subtitle { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-style: italic; color: #E8C99A; margin-bottom: 20px; }
+  .header-verse { display: inline-block; background: rgba(201,150,61,.2); border: 1px solid rgba(201,150,61,.4); border-radius: 6px; padding: 7px 16px; font-size: 12px; color: #E8C99A; letter-spacing: .04em; }
+  .tagline { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; font-style: italic; color: #C5A882; margin-top: 18px; line-height: 1.5; }
+  main { padding: 0 32px 42px; }
+  .intro { padding: 28px 0 0; font-size: 15px; line-height: 1.8; color: #4A2E18; }
+  .divider { height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin: 36px 0 28px; }
+  .pill { display: inline-block; background: var(--ink); color: var(--cream); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; margin-bottom: 16px; }
+  h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+  .section-copy { font-size: 13.5px; color: var(--muted); margin: 0 0 20px; line-height: 1.6; }
+  .bar-wrap { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .bar-label { width: 118px; font-size: 13px; font-weight: 500; flex-shrink: 0; color: var(--ink); opacity: .65; }
+  .bar-wrap.is-top .bar-label { font-weight: 700; opacity: 1; }
+  .bar-icon { display: inline-block; width: 21px; }
+  .bar-track { flex: 1; height: 14px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 999px; }
+  .bar-score { font-size: 12px; font-weight: 700; color: var(--muted); width: 42px; text-align: right; opacity:.65; }
+  .bar-wrap.is-top .bar-score { opacity: 1; }
+  .note { font-size: 12px; color: #9A7A5A; margin-top: 10px; font-style: italic; line-height: 1.5; }
+  .gift-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 18px; margin-bottom: 16px; position: relative; overflow: hidden; break-inside: avoid; page-break-inside: avoid; }
+  .gift-accent { position: absolute; top: 0; left: 0; width: 5px; bottom: 0; background: var(--accent); }
+  .gift-content { padding-left: 14px; }
+  .gift-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .gift-icon { font-size: 22px; }
+  .gift-header h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 24px; font-weight: 700; flex: 1; color: var(--accent); margin: 0; }
+  .gift-score, .verse-tag { background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .aha { background: rgba(201,150,61,.1); border: 1px solid rgba(201,150,61,.25); border-radius: 10px; padding: 11px 14px; font-size: 14px; font-style: italic; font-family: Georgia, 'Times New Roman', serif; line-height: 1.5; margin-bottom: 14px; color: #6B3E1A; }
+  .micro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .micro-card { background: var(--cream); border-radius: 10px; padding: 11px 13px; font-size: 12.6px; line-height: 1.55; border-left: 3px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+  .friend-card { margin-bottom: 10px; }
+  .micro-label { font-weight: 800; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 5px; opacity:.75; color: var(--accent); }
+  .watch { background: rgba(181,85,106,.07); border: 1px solid rgba(181,85,106,.2); border-radius: 10px; padding: 10px 13px; font-size: 12.6px; line-height: 1.5; color: #7A2A3A; margin-bottom: 10px; }
+  .verse-tag { display: inline-block; background: var(--accent); margin-top: 0; }
+  .feature-box { background: linear-gradient(135deg, #FFF8F0, #FBF0E4); border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin-bottom: 28px; break-inside: avoid; }
+  .feature-box p { font-size: 14px; line-height: 1.8; color: #4A2E18; margin: 0 0 16px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .role-card, .scripture-card { background: var(--cream); border-radius: 12px; padding: 14px 16px; border: 1px solid var(--line); }
+  .role-card h4 { margin: 0 0 8px; font-size: 11px; letter-spacing:.15em; text-transform:uppercase; color: var(--gold); }
+  .role-card p { margin:0; font-size:13px; line-height:1.65; }
+  .missed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+  .missed-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13.5px; line-height: 1.55; display: flex; gap: 10px; }
+  .missed-card span { color: var(--gold); font-weight: 900; }
+  .scripture-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px; }
+  .scripture-card { background: var(--panel); break-inside: avoid; }
+  .scripture-card h4 { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 16px; margin: 0 0 4px; color: var(--gold); }
+  .scripture-card p { margin:0; font-size:13px; line-height:1.6; color:#5A3A20; }
+  .closing { background: linear-gradient(135deg, #2C1A10, #5A2D1A); border-radius: 18px; padding: 36px 36px 32px; text-align: center; margin-top: 36px; position: relative; overflow: hidden; break-inside: avoid; }
+  .closing::before { content:''; position:absolute; inset:0; background-image: radial-gradient(circle at 10% 80%, rgba(201,150,61,.12) 0%, transparent 50%), radial-gradient(circle at 90% 20%, rgba(181,85,106,.1) 0%, transparent 40%); }
+  .closing > div { position: relative; z-index: 1; }
+  .closing h2 { color: var(--cream); font-size: 30px; margin-bottom: 14px; }
+  .closing p { font-size: 14px; line-height: 1.8; color: #C5A882; max-width: 560px; margin: 0 auto 20px; }
+  .closing-verse { font-family: Georgia, 'Times New Roman', serif; font-size: 16px; font-style: italic; color: #E8C99A; border-top: 1px solid rgba(201,150,61,.3); padding-top: 18px; }
+  .prepared { margin-top: 20px; font-size: 12px; color: rgba(197,168,130,.66); letter-spacing: .1em; text-transform: uppercase; }
+  footer { text-align: center; font-size: 9pt; color: #7A5A3A; padding: 22px 16px 30px; }
+  @media (max-width: 640px) {
+    .page { width: 100%; box-shadow: none; }
+    header { padding: 44px 20px 36px; }
+    h1 { font-size: 54px; }
+    .subtitle { font-size: 18px; }
+    .header-verse { font-size: 11.5px; line-height: 1.4; }
+    main { padding: 0 18px 34px; }
+    .intro { font-size: 14.5px; }
+    h2 { font-size: 25px; }
+    .bar-wrap { gap: 7px; }
+    .bar-label { width: 108px; font-size: 12.5px; }
+    .bar-score { width: 38px; font-size: 11.5px; }
+    .gift-card { padding: 19px 16px 16px; }
+    .gift-content { padding-left: 10px; }
+    .gift-header h3 { font-size: 22px; }
+    .micro-grid, .two-col, .missed-grid, .scripture-grid { grid-template-columns: 1fr; }
+    .closing { padding: 30px 20px 28px; }
+  }
+  @media print {
+    @page { size: Letter; margin: .35in; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: white; }
+    .page { max-width: none; box-shadow: none; }
+    main { padding-left: 20px; padding-right: 20px; }
+    header { border-radius: 0; }
+    .divider { margin: 28px 0 22px; }
+    .gift-card { margin-bottom: 12px; }
+    footer { padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <div class="label">RIZE Young Adult Ministry</div>
+        <h1>Amber</h1>
+        <div class="subtitle">Your Spiritual Gift Profile</div>
+        <div class="header-verse">1 Peter 4:10 - As each has received a gift, use it to serve one another</div>
+        <div class="tagline">Not loud. Not flashy. But deeply Kingdom-useful.</div>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <p>Amber, this is what the assessment picked up. But if we are honest, people around you have seen this for a while. They just never had the language for it. This is the language.</p>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <div class="pill">Your Scores at a Glance</div>
+        <h2>What These Numbers Mean</h2>
+        <p class="section-copy">Each gift is scored out of 25. These are not grades. They show where God has naturally wired you to serve. The longer the bar, the stronger the grace.</p>
+        
+      <div class="bar-wrap is-top">
+        <div class="bar-label"><span class="bar-icon">💗</span>Mercy</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100.0%; background:linear-gradient(90deg,#B5556A,#B5556ACC);"></div></div>
+        <div class="bar-score">25/25</div>
+      </div>
+      <div class="bar-wrap is-top">
+        <div class="bar-label"><span class="bar-icon">✨</span>Faith</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88.0%; background:linear-gradient(90deg,#7A6EA0,#7A6EA0CC);"></div></div>
+        <div class="bar-score">22/25</div>
+      </div>
+      <div class="bar-wrap is-top">
+        <div class="bar-label"><span class="bar-icon">🌿</span>Giving</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88.0%; background:linear-gradient(90deg,#C9963D,#C9963DCC);"></div></div>
+        <div class="bar-score">22/25</div>
+      </div>
+      <div class="bar-wrap is-top">
+        <div class="bar-label"><span class="bar-icon">🤝</span>Service</div>
+        <div class="bar-track"><div class="bar-fill" style="width:84.0%; background:linear-gradient(90deg,#6B8F71,#6B8F71CC);"></div></div>
+        <div class="bar-score">21/25</div>
+      </div>
+      <div class="bar-wrap is-top">
+        <div class="bar-label"><span class="bar-icon">👁️</span>Discernment</div>
+        <div class="bar-track"><div class="bar-fill" style="width:80.0%; background:linear-gradient(90deg,#9A6B7F,#9A6B7FCC);"></div></div>
+        <div class="bar-score">20/25</div>
+      </div>
+      <div class="bar-wrap is-top">
+        <div class="bar-label"><span class="bar-icon">🏡</span>Hospitality</div>
+        <div class="bar-track"><div class="bar-fill" style="width:76.0%; background:linear-gradient(90deg,#C4744A,#C4744ACC);"></div></div>
+        <div class="bar-score">19/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Leadership</div>
+        <div class="bar-track"><div class="bar-fill" style="width:64.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">16/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Admin</div>
+        <div class="bar-track"><div class="bar-fill" style="width:64.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">16/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Exhortation</div>
+        <div class="bar-track"><div class="bar-fill" style="width:64.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">16/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Wisdom</div>
+        <div class="bar-track"><div class="bar-fill" style="width:60.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">15/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Apostleship</div>
+        <div class="bar-track"><div class="bar-fill" style="width:56.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">14/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Evangelism</div>
+        <div class="bar-track"><div class="bar-fill" style="width:52.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">13/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Knowledge</div>
+        <div class="bar-track"><div class="bar-fill" style="width:44.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">11/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Shepherding</div>
+        <div class="bar-track"><div class="bar-fill" style="width:40.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">10/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Teaching</div>
+        <div class="bar-track"><div class="bar-fill" style="width:40.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">10/25</div>
+      </div>
+      <div class="bar-wrap ">
+        <div class="bar-label"><span class="bar-icon"></span>Prophecy</div>
+        <div class="bar-track"><div class="bar-fill" style="width:32.0%; background:linear-gradient(90deg,#C5B8A8,#C5B8A8CC);"></div></div>
+        <div class="bar-score">8/25</div>
+      </div>
+        <p class="note">Highlighted gifts are your top 6. Supporting gifts are present and real, just not your primary lane right now.</p>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <div class="pill">Gift by Gift Breakdown</div>
+        <h2>The Aha Moments</h2>
+        <p class="section-copy">Read each one slowly. You might catch yourself saying, &quot;wait, that actually makes sense.&quot;</p>
+        
+    <article class="gift-card" style="--accent:#B5556A;">
+      <div class="gift-accent"></div>
+      <div class="gift-content">
+        <div class="gift-header">
+          <span class="gift-icon">💗</span>
+          <h3>Mercy</h3>
+          <span class="gift-score">25/25</span>
+        </div>
+        <div class="aha">&quot;That&#x27;s why strangers open up to you in five minutes flat.&quot;</div>
+        <div class="micro-grid">
+          <div class="micro-card"><div class="micro-label">In the Army</div>You noticed the Soldier who said &#x27;I&#x27;m fine&#x27; but wasn&#x27;t. People trusted you before they trusted leadership.</div>
+          <div class="micro-card"><div class="micro-label">In RIZE</div>Prayer care team, newcomer follow-up, one-on-one encouragement, women&#x27;s care support.</div>
+        </div>
+        <div class="micro-card friend-card"><div class="micro-label">As Manny's Friend</div>Manny checks on you too. Not just the other way around.</div>
+        <div class="watch"><strong>Keep Watch:</strong> You may feel responsible for everyone&#x27;s emotions. You&#x27;re not. Galatians 6:2-5 gives you both verses, not just the soft one.</div>
+        <span class="verse-tag">Romans 12:8</span>
+      </div>
+    </article>
+    <article class="gift-card" style="--accent:#7A6EA0;">
+      <div class="gift-accent"></div>
+      <div class="gift-content">
+        <div class="gift-header">
+          <span class="gift-icon">✨</span>
+          <h3>Faith</h3>
+          <span class="gift-score">22/25</span>
+        </div>
+        <div class="aha">&quot;That&#x27;s why people call you when they&#x27;re panicking. You&#x27;re the calm in the room.&quot;</div>
+        <div class="micro-grid">
+          <div class="micro-card"><div class="micro-label">In the Army</div>PCS chaos, field stress, toxic climates. You were the &#x27;God&#x27;s still got us&#x27; anchor people borrowed from.</div>
+          <div class="micro-card"><div class="micro-label">In RIZE</div>Prayer nights, intercession, encouraging young adults through uncertainty, steady hope-keeping.</div>
+        </div>
+        <div class="micro-card friend-card"><div class="micro-label">As Manny's Friend</div>Manny doesn&#x27;t need you to perform faith. Just be honest when your own tank is low too.</div>
+        <div class="watch"><strong>Keep Watch:</strong> Faith is not denial. You still need wisdom, honest processing, and real plans alongside your trust.</div>
+        <span class="verse-tag">Hebrews 11:1</span>
+      </div>
+    </article>
+    <article class="gift-card" style="--accent:#C9963D;">
+      <div class="gift-accent"></div>
+      <div class="gift-content">
+        <div class="gift-header">
+          <span class="gift-icon">🌿</span>
+          <h3>Giving</h3>
+          <span class="gift-score">22/25</span>
+        </div>
+        <div class="aha">&quot;That&#x27;s why you remember people&#x27;s favorite food, drink, comfort item. It&#x27;s not random. It&#x27;s love through attention.&quot;</div>
+        <div class="micro-grid">
+          <div class="micro-card"><div class="micro-label">In the Army</div>Care packages, bringing meals, quietly covering gaps, helping families during deployments.</div>
+          <div class="micro-card"><div class="micro-label">In RIZE</div>Fellowship food, care baskets, outreach supply, benevolence. Your generosity builds culture.</div>
+        </div>
+        <div class="micro-card friend-card"><div class="micro-label">As Manny's Friend</div>Manny pays attention to your needs too. You don&#x27;t always have to be the one giving.</div>
+        <div class="watch"><strong>Keep Watch:</strong> God loves a cheerful giver, not a guilt-driven one (2 Cor 9:7). If you&#x27;re giving from exhaustion, that&#x27;s a signal.</div>
+        <span class="verse-tag">2 Corinthians 9:7</span>
+      </div>
+    </article>
+    <article class="gift-card" style="--accent:#6B8F71;">
+      <div class="gift-accent"></div>
+      <div class="gift-content">
+        <div class="gift-header">
+          <span class="gift-icon">🤝</span>
+          <h3>Service</h3>
+          <span class="gift-score">21/25</span>
+        </div>
+        <div class="aha">&quot;That&#x27;s why you already handled it before anyone asked. That &#x27;little thing&#x27; you did? Someone felt loved.&quot;</div>
+        <div class="micro-grid">
+          <div class="micro-card"><div class="micro-label">In the Army</div>Setup, morale events, quietly solving logistics problems leaders missed, helping new Soldiers land.</div>
+          <div class="micro-card"><div class="micro-label">In RIZE</div>Guest experience, food coordination, setup, follow-up. The behind-the-scenes work that holds everything together.</div>
+        </div>
+        <div class="micro-card friend-card"><div class="micro-label">As Manny's Friend</div>Your service is seen and valued. Manny says thank you specifically, not just in general.</div>
+        <div class="watch"><strong>Keep Watch:</strong> Helpers become invisible until they stop. You need leaders who see you, not just use you.</div>
+        <span class="verse-tag">1 Peter 4:10</span>
+      </div>
+    </article>
+    <article class="gift-card" style="--accent:#9A6B7F;">
+      <div class="gift-accent"></div>
+      <div class="gift-content">
+        <div class="gift-header">
+          <span class="gift-icon">👁️</span>
+          <h3>Discernment</h3>
+          <span class="gift-score">20/25</span>
+        </div>
+        <div class="aha">&quot;That&#x27;s why you can tell something is off before anyone says a word. You&#x27;re not just sweet. You&#x27;re sharp.&quot;</div>
+        <div class="micro-grid">
+          <div class="micro-card"><div class="micro-label">In the Army</div>You read the room. You sensed when morale was dropping, when someone&#x27;s words didn&#x27;t match their actions.</div>
+          <div class="micro-card"><div class="micro-label">In RIZE</div>Atmosphere protection, prayer team, helping notice who needs follow-up, flagging when something feels spiritually heavy.</div>
+        </div>
+        <div class="micro-card friend-card"><div class="micro-label">As Manny's Friend</div>When something feels off to you, say it gently. Manny wants that honest read, not just encouragement.</div>
+        <div class="watch"><strong>Keep Watch:</strong> Discernment must stay submitted to Scripture, prayer, and counsel. Test impressions. Don&#x27;t weaponize them.</div>
+        <span class="verse-tag">1 Corinthians 12:10</span>
+      </div>
+    </article>
+    <article class="gift-card" style="--accent:#C4744A;">
+      <div class="gift-accent"></div>
+      <div class="gift-content">
+        <div class="gift-header">
+          <span class="gift-icon">🏡</span>
+          <h3>Hospitality</h3>
+          <span class="gift-score">19/25</span>
+        </div>
+        <div class="aha">&quot;That&#x27;s why your cooking doesn&#x27;t just taste like food. It tastes like home. It tastes like safety.&quot;</div>
+        <div class="micro-grid">
+          <div class="micro-card"><div class="micro-label">In the Army</div>You made people feel like they belonged somewhere in environments built to feel temporary.</div>
+          <div class="micro-card"><div class="micro-label">In RIZE</div>Fellowship meals, dinner Bible studies, newcomer nights, &#x27;come eat and talk&#x27; gatherings. Your table is ministry.</div>
+        </div>
+        <div class="micro-card friend-card"><div class="micro-label">As Manny's Friend</div>You don&#x27;t have to cook to care. But when you do, know that Manny sees the love behind it.</div>
+        <div class="watch"><strong>Keep Watch:</strong> Don&#x27;t become &#x27;the food girl.&#x27; Your hospitality is Kingdom infrastructure, not a free catering service.</div>
+        <span class="verse-tag">Hebrews 13:2</span>
+      </div>
+    </article>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <div class="pill">Your Lane</div>
+        <h2>RIZE Hospitality and Care Coordinator</h2>
+        <div class="feature-box">
+          <p>The mission: Help create a Spirit-led environment where people are welcomed, nourished, remembered, and cared for. Not &quot;the food girl.&quot; The person who makes people feel like they belong before they even know why.</p>
+          <div class="two-col">
+            <div class="role-card"><h4>What You Do</h4><p>Welcome newcomers. Coordinate meals and fellowship. Notice who needs follow-up. Support women who need encouragement. Build warmth into the group culture.</p></div>
+            <div class="role-card"><h4>What You Don't Do</h4><p>Pay for everything alone. Become everyone's counselor. Say yes to every request. Carry heavy pastoral issues solo. Serve without a small team behind you.</p></div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="pill">Things You May Have Missed About Yourself</div>
+        <h2>You May Not Have Realized...</h2>
+        <div class="missed-grid"><div class="missed-card"><span>•</span>Your kindness has spiritual weight.</div>
+<div class="missed-card"><span>•</span>Your cooking can open doors for ministry.</div>
+<div class="missed-card"><span>•</span>You don&#x27;t have to be loud to be used by God.</div>
+<div class="missed-card"><span>•</span>Your discernment and mercy make you safe and sharp at the same time.</div>
+<div class="missed-card"><span>•</span>Remembering small things about people is part of how you love prophetically.</div>
+<div class="missed-card"><span>•</span>You are probably more valuable in small rooms than big stages right now.</div>
+<div class="missed-card"><span>•</span>Your quiet service may have more impact than public recognition.</div>
+<div class="missed-card"><span>•</span>You are not &#x27;just nice.&#x27; You carry grace-gifts.</div></div>
+      </section>
+      <div class="divider"></div>
+      <section>
+        <div class="pill">Biblical Grounding</div>
+        <h2>Scripture Anchors for Your Gifts</h2>
+        <div class="scripture-grid"><div class="scripture-card"><h4>Romans 12:6-13</h4><p>Your entire gift cluster is named here: mercy, giving, service, exhortation, hospitality. This is your chapter.</p></div>
+<div class="scripture-card"><h4>1 Corinthians 12:4-7</h4><p>Gifts are given for the common good. Not for performance. Not for pressure.</p></div>
+<div class="scripture-card"><h4>1 Peter 4:8-11</h4><p>Hospitality and service are how we steward God&#x27;s grace to others.</p></div>
+<div class="scripture-card"><h4>Galatians 6:2-5</h4><p>Bear one another&#x27;s burdens. And each one must carry their own load. You need both verses.</p></div>
+<div class="scripture-card"><h4>Luke 10:38-42</h4><p>Serve, but do not neglect sitting at Jesus&#x27; feet. You cannot pour from empty.</p></div>
+<div class="scripture-card"><h4>Philippians 1:9-10</h4><p>Love that grows in knowledge and discernment. That&#x27;s the goal.</p></div></div>
+      </section>
+      <section class="closing">
+        <div>
+          <h2>Your Kingdom Lane</h2>
+          <p>Mercy sees the pain.<br>Faith believes God can heal it.<br>Giving offers what you have.<br>Service does the practical work.<br>Discernment senses what is really going on.<br>Hospitality creates the room where people feel safe enough to receive.<br><br>You nourish people beyond the plate. Food is the doorway. The deeper ministry is comfort, safety, prayer, and the kindness of Christ flowing through you with wisdom.<br><br>You are called to love people, not carry them. Jesus carries the world. You do not have to.</p>
+          <div class="closing-verse">&quot;As each has received a gift, use it to serve one another,<br>as good stewards of God's varied grace.&quot; - 1 Peter 4:10</div>
+          <div class="prepared">Prepared with love by RIZE Young Adult Ministry</div>
+        </div>
+      </section>
+    </main>
+    <footer>© 2025 Emanuel Walker • The Walker Effect</footer>
+  </div>
+</body>
+</html>
